@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+input{
+   width: 700px; 
+   height: 40px;
+   border-radius: 10px;
+}
+
+table{
+    width: 700px;
+    margin-top: 20px;
+}
+
+thead,td{   
+    border: 1px solid;
+}

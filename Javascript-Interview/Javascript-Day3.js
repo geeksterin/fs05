@@ -1,30 +1,50 @@
 
+//Lexical Scope Closure
+
+/*var x=5;
+
+function a(){  //  x =5
+    var y=3;
+    function b(){ // y ,x
+        let z=4;
+        function c(){   
+            let m =7;
+        }
+    }
+}*/
 
 
-// console.log('before')
-// let a=50; 
-// setTimeout(()=>{
-//     let b=a;
-//     console.log('timeout executed',b);
-// },3000);
 
-// console.log('after');
+function quesTwo(){
+    console.log('before')
+    let a=50; 
+    setTimeout(()=>{
+        let b=a;
+        console.log('timeout executed',b);
+    },0);
+    
+    console.log('after');
+}
+//quesTwo();
+
+
+
 
 //callback function---->makes javascript asynchronous.
 
 // setTimeout(()=>{},2000)
 
-// function a()
-// {
-//     var k=50;
-//     function b()
-//     {
-//         console.log('b called');
-//     }
-//     return b;  
-// }
+/*function a()
+{
+    var k=50;
+    function b()
+    {
+        console.log('b called');
+    }
+    return b;  
+}
 
-// var m=a()();
+var m=a()();*/
 
 
 //How we accessed an inside function in outside scope.
@@ -35,7 +55,7 @@
 
 
 // EXAMPLE-1
-/*function a()
+function a()
 {
     let x=100;
     function b()
@@ -46,25 +66,25 @@
     return b; // This doesnt only returns the function but the complete closure.
 }
 //This b function remembers its lexical scope and hence value of x is preserved.
-var m=a();
-m();*/
+var returnedFunction=a();
+returnedFunction();
 
 
 
 
 //EXAMPLE-2
-/*function a()
+function a()
 {
     var x=100;
-    function b()
+    function b()   // Closure formed for b x=100 or x=200? x=100
     {
         return x;
     }
     var x=200;
     return b;
 }
-var m=a();
-console.log(m());*/
+// var m=a();
+// console.log(m());
 
 
 
@@ -77,7 +97,7 @@ function a()
         var y=200;
         function c()
         {
-            console.log(x,y);
+            console.log(x,y); //100,200
             return x+y;
         }
         return c;
@@ -92,8 +112,7 @@ function a()
 
 //Data-hiding
 
-/*function dataHiding()
-{
+/*function dataHiding(){
     let x=1;
     function multiply()
     {
@@ -102,8 +121,8 @@ function a()
     }
     return multiply;
 }
-var mult=dataHiding();
-console.log(x);*/
+
+var mult = dataHiding();*/
 
 /*function a()
 {
@@ -119,18 +138,36 @@ console.log(x);*/
 var callLater=a();
 console.log(callLater()());*/
 
-for(var i=0;i<5;i++)
-{
-    setTimeout(callback,1000);
-    function callback()
-        {
-            console.log(i);
-        }
+//1 2 3 4 5
+
+// for(let i=1;i<=5;i++){ 
+//     setTimeout(()=>{
+//         console.log(i);   // closures
+//     },i*1000);
+// }
+function testingClosure(){
+    {
+        let i =1;
+        setTimeout(()=>{
+            console.log(i);   // closures  [i=4]
+        },i*1000);
+    }
+    {
+        let i =2;
+        setTimeout(()=>{
+            console.log(i);   // closures [i=4]
+        },i*1000);
+    }
+    {  
+        let i =3;
+        setTimeout(()=>{
+            console.log(i);   // closures [i=4]
+        },i*1000);
+    }
+
 }
+//testingClosure();
 
-
-//10 10 10 10 10 10 10 10 
-
-
+console.log(mult());
 
 
