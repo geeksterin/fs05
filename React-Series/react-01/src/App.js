@@ -6,6 +6,7 @@ import { UseState } from './components/UseState';
 import { ObjectUseState } from './components/ObjectUseState';
 import NoofRenders from './components/NoofRenders';
 import RefForms from './components/RefForms';
+import UseReducer from './components/UseReducer';
 
 function App() {
   const [first, setfirst] = useState(0);
@@ -24,7 +25,8 @@ function App() {
       {/* <UseState></UseState> */}
       {/* <ObjectUseState></ObjectUseState> */}
       {/* <NoofRenders></NoofRenders> */}
-      <RefForms></RefForms>
+      {/* <RefForms></RefForms> */}
+      <UseReducer></UseReducer>
     </div>
   );
 }

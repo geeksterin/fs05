@@ -11,7 +11,7 @@ function ExpenseList() {
         <h2>Expenses:</h2>
         <ul className='list-group'>
            {expenses.map((item)=>{
-                return <ExpenseItem name={item.name} cost={item.cost}></ExpenseItem>
+                return <ExpenseItem id={item.id} name={item.name} cost={item.cost}></ExpenseItem>
            })}
         </ul>
     </>

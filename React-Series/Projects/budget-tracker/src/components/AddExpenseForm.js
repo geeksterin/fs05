@@ -1,9 +1,19 @@
+import { useContext } from "react";
 import React from 'react';
+import { AppContext } from "./context/AppContext";
 
 const AddExpenseForm = () => {
 
+    const {dispatch} = useContext(AppContext);
+
+    function handleSubmit(event){
+        event.preventDefault();      
+        let name = event.target[0].value;
+        let cost = event.target[1].value;
+        dispatch({type:'ADD_ITEM',payload: {name,cost}});
+    }
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
 			<div className='row'>
 				<div className='col-sm'>
 					<label className='mb-3' for='name'>Name</label>
@@ -35,3 +45,16 @@ const AddExpenseForm = () => {
 };
 
 export default AddExpenseForm;
+
+
+// global store ----> Budget,total expenses array --->items
+
+// add an expense ----> form ----> global store
+
+// delete an expense ----> TiDelete ----> remove the item from store
+
+// dynamically update our values to the Remaining,spentsofar,budget Component.
+
+// 2 things for context---> ContextProvider createContext
+
+// AppProvider  AppContext ----> useContext(AppContext)

@@ -1,28 +1,33 @@
-import React, { useReducer } from 'react'
+import React,{useReducer} from 'react'
 
-const initialState = 0
-const reducer = (state, action) => {
-  switch (action) {
+
+const initialState = 0;
+
+function reducer(state,action){
+  console.log('state and action',state,action);
+  switch(action.type){
     case 'increment':
-      return state + 1
+      return state+1;
     case 'decrement':
-      return state - 1
+      return state-1;
     case 'reset':
-      return initialState
+      return action.initialState;
     default:
-      return state
+      return state;
   }
 }
 
-export const UseReducer = () => {
-  const [count, dispatch] = useReducer(reducer, initialState);
-  console.log('UseReducer Render');
+function UseReducer() {
+
+  const [count, dispatch] = useReducer(reducer,initialState);
   return (
     <div>
-      <div>Count = {count}</div>
-      <button onClick={() => dispatch('increment')}>Increment</button>
-      <button onClick={() => dispatch('decrement')}>Decrement</button>
-      <button onClick={() => dispatch('reset')}>Reset</button>
+        Count: {count}
+        <button onClick={()=>dispatch({type:'increment'})}>Increment</button>
+        <button onClick={()=>dispatch({type:'decrement'})}>Decrement</button>
+        <button onClick={()=>dispatch({type:'reset'})}>Reset</button>
     </div>
   )
 }
+
+export default UseReducer
